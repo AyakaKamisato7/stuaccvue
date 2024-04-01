@@ -155,11 +155,11 @@ export default {
 
         //cards
         const guideLinks = reactive([
-            { title: 'My order', icon: 'el-icon-info', route: '/order' },
+            { title: 'My Order', icon: 'el-icon-info', route: '/order' },
             { title: 'My Complaint', icon: 'el-icon-notebook-2', route: '/complaint?' },
             { title: 'My Repair', icon: 'el-icon-edit-outline', route: '/repair' },
             { title: 'My Events', icon: 'el-icon-edit-outline', route: '/events' },
-            { title: 'My Account', icon: 'el-icon-edit-outline', route: '/stuHelp' },
+            { title: 'My Reservation', icon: 'el-icon-edit-outline', route: '/reservation' },
             { title: 'Wellbeing', icon: 'el-icon-edit-outline', route: '/wellbeing' },
 
             // Add other links as needed

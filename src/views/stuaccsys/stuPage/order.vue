@@ -165,8 +165,6 @@ export default {
                 userId: userId.value
             }).then((result) => {
                 form.Evidence = result.data.data
-                console.log(1111111111111)
-                console.log(form.Evidence)
                 circleUrl = result.data
             }).catch((err) => {
                 console.log(err)

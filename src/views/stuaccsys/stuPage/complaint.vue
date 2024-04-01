@@ -195,7 +195,7 @@
                             <el-form-item label="Describe the situation" style="margin-left: 27%; width:39.5% ">
                                 <el-input v-model="form.Description" type="textarea" :rows="3" />
                             </el-form-item>
-                            <el-form-item label="Describe the situation" style="margin-left: 27%; width:39.5% ">
+                            <el-form-item label="Evidence" style="margin-left: 27%; width:39.5% ">
                                 <el-upload action="http://localhost:8080/upload" :on-success="handleUploadSuccessEdit"
                                     :on-error="handleUploadError" :before-upload="beforeUpload"
                                     :file-list="editFileList" :limit="1" list-type="picture-card">

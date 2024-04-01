@@ -24,6 +24,11 @@ const routes = [
     component: () => import('../views/stuaccsys/accHome.vue')
   },
   {
+    path: '/reservation',
+    name: 'reservation',
+    component: () => import('../views/stuaccsys/stuPage/reservation.vue')
+  },
+  {
     path: '/complaint',
     name: 'complaint',
     component: () => import('../views/stuaccsys/stuPage/complaint.vue')
