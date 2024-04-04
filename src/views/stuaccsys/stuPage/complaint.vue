@@ -290,7 +290,7 @@ export default {
         }
 
         function delComplaint(rowData) {
-            console.log(rowData.complaintID)
+            // console.log(rowData.complaintID)
             axios.post('http://localhost:8080/delComplaint', {
                 complaintID: rowData.complaintID
             }).then((result) => {
