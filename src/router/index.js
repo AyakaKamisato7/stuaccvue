@@ -53,6 +53,11 @@ const routes = [
     name: 'stuabout',
     component: () => import('../views/stuaccsys/stuPage/stuabout.vue')
   },
+  {
+    path: '/wellbeing',
+    name: 'wellbeing',
+    component: () => import('../views/stuaccsys/stuPage/wellbeing.vue')
+  },
   // {
   //   path: '/home',
   //   name: 'home',
