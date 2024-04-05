@@ -71,8 +71,8 @@
                                 <el-input v-model="registerForm.registerUserName" placeholder="Please input username"
                                     style="width: 60%;" />
                             </el-form-item>
-                            <el-form-item label="Email">
-                                <el-input v-model="registerForm.registerUserEmail" placeholder="Please input email"
+                            <el-form-item label="Phone">
+                                <el-input v-model="registerForm.registerUserPhone" placeholder="Please input Phone"
                                     style="width: 60%;" />
                             </el-form-item>
                             <el-form-item label="Password">
@@ -141,12 +141,17 @@ export default {
                 userName: registerForm.registerUserName,
                 password: registerForm.registerUserPassword,
                 userType: registerForm.registerUserStatus,
-                Phone: registerForm.registerUserPhone,
-                Birth: registerForm.registerUserBirthday
+                phone: registerForm.registerUserPhone,
+                birth: registerForm.registerUserBirthday
             })
             axios.post('http://localhost:8080/register', data).then((resp) => {
                 if (resp.data.code == '200') {
                     alert(resp.data.message)
+                    registerForm.registerUserName = ref('');
+                    registerForm.registerUserPassword = ref('');
+                    registerForm.registerUserStatus = ref('');
+                    registerForm.registerUserPhone = ref('');
+                    registerForm.registerUserBirthday = ref('');
                 } else if (resp.data.code == '400') {
                     alert(resp.data.message);
                     return false;

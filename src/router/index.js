@@ -21,7 +21,14 @@ const routes = [
   {
     path: '/accHome',
     name: 'accHome',
-    component: () => import('../views/stuaccsys/accHome.vue')
+    component: () => import('../views/stuaccsys/accHome.vue'),
+    children: [
+      { path: '/stuAccount', component: () => import('../views/stuaccsys/magPage/stuAccount.vue') },
+      { path: '/manAccount', component: () => import('../views/stuaccsys/magPage/manAccount.vue') },
+      { path: '/pendingComplaint', component: () => import('../views/stuaccsys/magPage/pendingComplaint.vue') },
+      { path: '/eventManage', component: () => import('../views/stuaccsys/magPage/eventManage.vue') },
+      { path: '/chatRoom', component: () => import('../views/stuaccsys/magPage/chatRoom.vue') },
+    ]
   },
   {
     path: '/reservation',

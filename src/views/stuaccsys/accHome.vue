@@ -1,4 +1,71 @@
 <template>
+    <!-- manager -->
+    <el-container class="layout-container-demo" style="height: 825px">
+        <el-aside width="200px">
+            <el-scrollbar>
+                <el-menu :default-openeds="['1']" :default-active="this.$router.path" router>
+                    <el-sub-menu index="1">
+                        <template #title>
+                            <el-icon>
+                                <message />
+                            </el-icon>Account manage
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item :index="`/stuAccount`">Student</el-menu-item>
+                            <el-menu-item :index="`/manAccount`">Maintenance staff</el-menu-item>
+                            <el-menu-item index="1-3">Account request</el-menu-item>
+                        </el-menu-item-group>
+                        
+                    </el-sub-menu>
+                    <el-sub-menu index="2">
+                        <template #title>
+                            <el-icon><message /></el-icon>Student life manage
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item :index="`/pendingComplaint`">Pending complaints</el-menu-item>
+                            <el-menu-item index="2-2">Express arrival reminder</el-menu-item>
+                            <el-menu-item :index="`/eventManage`">Events manage</el-menu-item>
+                        </el-menu-item-group>
+                    </el-sub-menu>
+                    <el-sub-menu index="3">
+                        <template #title>
+                            <el-icon>
+                                <setting />
+                            </el-icon>Wellbeing
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item :index="`/chatRoom`">Chat room</el-menu-item>
+                        </el-menu-item-group>
+                    </el-sub-menu>
+                </el-menu>
+            </el-scrollbar>
+        </el-aside>
+
+        <el-container>
+            <el-header style="text-align: right; font-size: 12px">
+                <div class="toolbar">
+                    <el-dropdown>
+                        <el-icon style="margin-right: 8px; margin-top: 1px">
+                            <setting />
+                        </el-icon>
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item>View</el-dropdown-item>
+                                <el-dropdown-item>Add</el-dropdown-item>
+                                <el-dropdown-item>Delete</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+                    <span>{{ userName }}</span>
+                </div>
+            </el-header>
+
+            <el-main>
+                <router-view></router-view>
+            </el-main>
+        </el-container>
+    </el-container>
+    <!-- student -->
     <div class="common-layout" v-if="authority == 1">
         <!-- navigate -->
         <el-container>
@@ -55,7 +122,7 @@
                                 </el-dropdown-item>
                                 <el-dropdown-item class="clearfix">
                                     Sign out
-                                    <el-badge class="mark"  />
+                                    <el-badge class="mark" />
                                 </el-dropdown-item>
                             </el-dropdown-menu>
                         </template>
@@ -117,13 +184,17 @@ import { useRouter } from 'vue-router';
 export default {
     name: 'App', // 应该是字符串
     setup() {
+
+
+
+
         //avatar
         const form = reactive({
-            Evidence : '',
+            Evidence: '',
             userId: null // 添加 UserID 属性
         })
 
-        function fetchUrl(){
+        function fetchUrl() {
             axios.post('http://localhost:8080/findUrl', {
                 userId: userId.value
             }).then((result) => {
@@ -282,6 +353,7 @@ export default {
 .el-icon {
     font-size: 40px;
 }
+
 .avatar {
     margin-top: 10px;
     margin-left: 50%;
@@ -290,5 +362,29 @@ export default {
 .el-icon svg {
     height: 0.5em;
     width: 0.5em;
+}
+
+/* manager */
+.layout-container-demo .el-header {
+  position: relative;
+  background-color: var(--el-color-primary-light-7);
+  color: var(--el-text-color-primary);
+}
+.layout-container-demo .el-aside {
+  color: var(--el-text-color-primary);
+  background: var(--el-color-primary-light-8);
+}
+.layout-container-demo .el-menu {
+  border-right: none;
+}
+.layout-container-demo .el-main {
+  padding: 0;
+}
+.layout-container-demo .toolbar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  right: 20px;
 }
 </style>
